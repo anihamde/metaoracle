@@ -12,7 +12,7 @@ while (true) {
     history: conversationHistory
   });
 
-  console.log(`Amjad Masad: ${answer}\n`);
+  console.log(`Pythia: ${answer}\n`);
   
-  conversationHistory.push(`Human: ${question}`, `Amjad Masad: ${answer}`)
+  conversationHistory.push(`Human: ${question}`, `Pythia: ${answer}`)
 }
