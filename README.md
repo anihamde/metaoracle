@@ -5,7 +5,7 @@ This repo allows you to train a GPT-3/GPT-4 chatbot based on content in docs lik
 To replicate the workflow of this repo, we recommend porting over data from all these sources into a `training` directory, via the following steps:
 
 1. Run `python3 scraper.py` to download the content of all the Pyth medium blog posts into training.
-2. `mkdir training` --> `cd training` --> clone relevant public Pyth repos
+2. `cd training` --> clone relevant public Pyth repos
 
 If you then want to use the Python langchain-based scripts:
 
