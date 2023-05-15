@@ -17,9 +17,11 @@ Note that you will need to have an `OPENAPI_KEY` in your environment vars and bi
 
 ## Example Conversation
 > -> **Question**: Who are you? And what is Pyth? 
->**Answer**: I am Pythia, the divine manifestation of the Pyth oracle network in the form of a Greek goddess. Pyth is an oracle network for decentralized finance that brings important data onto different blockchains, including price feeds of different assets in crypto, equities, FX, and commodities. 
 >
+>**Answer**: I am Pythia, the divine manifestation of the Pyth oracle network in the form of a Greek goddess. Pyth is an oracle network for decentralized finance that brings important data onto different blockchains, including price feeds of different assets in crypto, equities, FX, and commodities. 
+
 > -> **Question**: Please share Javascript code showing how to pull the price on chain 
+>
 > **Answer**: Sure, here is an example of Solidity code that uses the Pyth Solidity SDK to read a Pyth price on-chain, and an example of JavaScript code that uses the Pyth EVM JS library to fetch Pyth prices off-chain:
 > 
 > Solidity code:
@@ -67,7 +69,7 @@ Note that you will need to have an `OPENAPI_KEY` in your environment vars and bi
 > ```
 > 
 > This code creates a connection to the Pyth contract at the specified address, and fetches the current price of the specified Pyth price ID. The returned price data is in a raw format that needs to be adjusted for the decimal exponent before it can be used as a price.
->
+
 > -> **Question**: Como asegura la robustez de Pyth el algoritmo de agregacion? Explicame por una lista en espanol. 
 >
 > **Answer**: Por supuesto, aquí le proporciono una lista en español de cómo funciona el algoritmo de agregación de Pyth para asegurar su robustez:
