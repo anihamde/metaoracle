@@ -22,10 +22,7 @@ def index_files(lake_name, files_dir, overwrite=False):
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(docs)
 
-    if overwrite:
-        db = DeepLake(dataset_path=f"hub://{username_activeloop}/{lake_name}", embedding_function=embeddings, overwrite=overwrite)
-    else:
-        db = DeepLake(dataset_path=f"hub://{username_activeloop}/{lake_name}", embedding_function=embeddings)
+    db = DeepLake(dataset_path=f"hub://{username_activeloop}/{lake_name}", embedding_function=embeddings, overwrite=overwrite)
     db.add_documents(texts)
 
 if __name__ == '__main__':
