@@ -8,6 +8,9 @@ import custom_prompt
 from constants import *
 
 def pythia_chatbot(lake_name, chain_type, model_type, retriever_distance_metric, retriever_fetch_k, retriever_mmr, retriever_k):
+    if not lake_name:
+        raise Exception("Must have non-null lake name")
+    
     embeddings = OpenAIEmbeddings(disallowed_special=())
 
     db = DeepLake(dataset_path=f"hub://{username_activeloop}/{lake_name}", read_only=True, embedding_function=embeddings)
