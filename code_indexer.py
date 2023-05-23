@@ -28,8 +28,8 @@ def index_files(lake_name, files_dir, overwrite=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Conduct indexing of data into DeepLake VectorStore.')
     parser.add_argument("--lake_name", "-ln", type=str, help="Name of the lake you wish to save this tensor index set into")
-    parser.add_argument("--files_dir", "-fd", type=str, help="Directory for the files that you want to index")
-    parser.add_argument("--overwrite", "-ow", action="store_true", help="Flag for whether you want to overwrite existing indices in lake")
+    parser.add_argument("--files_dir", "-fd", type=str, help="Directory for the files that to be indexed")
+    parser.add_argument("--overwrite", "-ow", action="store_true", help="Flag for whether to overwrite existing indices in lake")
 
     parser.set_defaults(files_dir="./training")
     parser.set_defaults(overwrite=False)

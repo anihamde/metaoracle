@@ -10,8 +10,18 @@ To replicate the workflow of this repo, we recommend porting over data from all 
 If you then want to use the Python langchain-based scripts:
 
 1. `cp constants_TEMPLATE.py constants.py` and fill out `constants.py` after registering for a username with ActiveLoop.
-2. Run `python3 code_indexer.py`. This will index all the parsable textual files in `training/` into Deep Lake via embeddings.
+2. Run `python3 code_indexer.py`. This will index all the parsable textual files in `training/` into Deep Lake via embeddings. Command line arguments include:
+_a. `ln` (`lake_name`): DeepLake lake name
+_b. `fd` (`files_dir`): Directory for the files to be indexed
+_c. `ow` (`overwrite`): Flag for whether to overwrite existing indices in lake
+
 3. Run `python3 oracle_of_oracle.py` to begin the chatbot conversation.
+_a. `ln` (`lake_name`): DeepLake lake name
+_b. `ct` (`chain_type`): Name of the chain type to be used for the QA in the chatbot
+_c. `mt` (`model_type`): Name of the LLM class to be used for the chatbot
+_d. `dm` (`retriever_distance_metric`): Distance metric for retriever similarity function
+_e. `fk`: (`retriever_fetch_k`): Number of results to fetch in retrieval
+_f. `k`: (`retriever_k`): TODO
 
 Note that you will need to have an `OPENAPI_KEY` in your environment vars and billing set up, as well as an `ACTIVELOOP_TOKEN` in your environment for Deep Lake access (likely free).
 
