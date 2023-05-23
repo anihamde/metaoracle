@@ -52,8 +52,8 @@ if __name__ == '__main__':
     parser.add_argument("--chain_type", "-ct", type=str, help="Name of the chain type to be used for the QA in the chatbot")
     parser.add_argument("--model_type", "-mt", type=str, help="Name of the LLM class to be used for the chatbot")
     parser.add_argument("--retriever_distance_metric", "-dm", type=str, help="Distance metric for retriever similarity function")
-    parser.add_argument("--retriever_fetch_k", "-fk", type=int, help="Number of results to fetch in retrieval")
-    parser.add_argument("--retriever_k", "-k", type=int, help="TODO")
+    parser.add_argument("--retriever_fetch_k", "-fk", type=int, help="Number of documents to fetch to pass to max_marginal_relevance algorithm")
+    parser.add_argument("--retriever_k", "-k", type=int, help="Number of documents to return")
 
     parser.set_defaults(model_type="gpt-3.5-turbo")
     parser.set_defaults(chain_type="stuff")

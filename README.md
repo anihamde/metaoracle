@@ -20,8 +20,8 @@ If you then want to use the Python langchain-based scripts:
     2. `ct` (`chain_type`): Name of the chain type to be used for the QA in the chatbot
     3. `mt` (`model_type`): Name of the LLM class to be used for the chatbot
     4. `dm` (`retriever_distance_metric`): Distance metric for retriever similarity function
-    5. `fk`: (`retriever_fetch_k`): Number of results to fetch in retrieval
-    6. `k`: (`retriever_k`): TODO
+    5. `fk`: (`retriever_fetch_k`): Number of documents to fetch to pass to max_marginal_relevance algorithm
+    6. `k`: (`retriever_k`): Number of documents to return
 
 Note that you will need to have an `OPENAPI_KEY` in your environment vars and billing set up, as well as an `ACTIVELOOP_TOKEN` in your environment for Deep Lake access (likely free).
 
