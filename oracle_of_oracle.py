@@ -7,7 +7,16 @@ from langchain.chains.conversational_retrieval.base import ConversationalRetriev
 import custom_prompt
 from constants import *
 
-def pythia_chatbot(lake_name, chain_type, model_type, retriever_distance_metric, retriever_fetch_k, retriever_mmr, retriever_k):
+def pythia_chatbot(
+        lake_name, 
+        chain_type, 
+        model_type, 
+        retriever_distance_metric, 
+        retriever_fetch_k, 
+        retriever_mmr, 
+        retriever_k, 
+        supply_conversation_context
+    ):
     if not lake_name:
         raise Exception("Must have non-null lake name")
     
@@ -42,7 +51,8 @@ def pythia_chatbot(lake_name, chain_type, model_type, retriever_distance_metric,
         question = input("Ask a question: ")
 
         result = qa({"question": question, "chat_history": chat_history})
-        chat_history.append((question, result['answer']))
+        if supply_conversation_context:
+            chat_history.append((question, result['answer']))
         print(f"-> **Question**: {question} \n")
         print(f"**Answer**: {result['answer']} \n")
 
@@ -54,12 +64,14 @@ if __name__ == '__main__':
     parser.add_argument("--retriever_distance_metric", "-dm", type=str, help="Distance metric for retriever similarity function")
     parser.add_argument("--retriever_fetch_k", "-fk", type=int, help="Number of documents to fetch to pass to max_marginal_relevance algorithm")
     parser.add_argument("--retriever_k", "-k", type=int, help="Number of documents to return")
+    parser.add_argument("--omit_conversation_context", "-occ", dest="supply_conversation_context", action="store_false", help="Flag for whether to omit feeding ongoing conversation as context into the QA chain")
 
     parser.set_defaults(model_type="gpt-3.5-turbo")
     parser.set_defaults(chain_type="stuff")
     parser.set_defaults(retriever_distance_metric="cos")
     parser.set_defaults(retriever_fetch_k=100)
     parser.set_defaults(retriever_k=10)
+    parser.set_defaults(supply_conversation_context=True)
 
     args = parser.parse_args()
 
@@ -70,5 +82,6 @@ if __name__ == '__main__':
         args.retriever_distance_metric, 
         args.retriever_fetch_k, 
         True, 
-        args.retriever_k
+        args.retriever_k,
+        args.supply_conversation_context
     )

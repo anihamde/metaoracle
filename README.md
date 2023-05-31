@@ -22,6 +22,7 @@ If you then want to use the Python langchain-based scripts:
     4. `dm` (`retriever_distance_metric`): Distance metric for retriever similarity function
     5. `fk`: (`retriever_fetch_k`): Number of documents to fetch to pass to max_marginal_relevance algorithm
     6. `k`: (`retriever_k`): Number of documents to return
+    7. `occ`: (`omit_conversation_context`): Flag for whether to omit feeding ongoing conversation as context into the QA chain
 
 Note that you will need to have an `OPENAPI_KEY` in your environment vars and billing set up, as well as an `ACTIVELOOP_TOKEN` in your environment for Deep Lake access (likely free).
 
